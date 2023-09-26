@@ -22,15 +22,18 @@ public partial class GameMaster : Node {
     public enum SaveTypes { playerDat, gameDat }
 
     //Save Slots
-    public static PlayerData loadedPlayerDataSlot1 = null;
-    public static PlayerData loadedPlayerDataSlot2 = null;
-    public static PlayerData loadedPlayerDataSlot3 = null;
+    public static PlayerData loadedPlayerDataSlot1 = new PlayerData();
+    public static PlayerData loadedPlayerDataSlot2 = new PlayerData();
+    public static PlayerData loadedPlayerDataSlot3 = new PlayerData();
 
     public override void _Ready() {
         GD.Print("Gamemaster Ready");
 
-        //Populate Dictionary of Base Player Data
+        //Populate Dictionaries
         playerData.init();
+        loadedPlayerDataSlot1.init();
+        loadedPlayerDataSlot2.init();
+        loadedPlayerDataSlot3.init();
 
         //Load Game System Data
         LoadGameData();
@@ -97,8 +100,6 @@ public partial class GameMaster : Node {
 
         //Read File Contents. File is only one line, so it does not need to be iterated.
         var jsonString = saveGame.GetLine();
-
-        GD.Print(jsonString);
 
         if (mySaveType == SaveTypes.playerDat) {
             if (loadToSlot == false) {
