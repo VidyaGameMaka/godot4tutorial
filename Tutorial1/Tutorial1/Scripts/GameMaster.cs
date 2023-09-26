@@ -19,7 +19,7 @@ public partial class GameMaster : Node {
     public static GameData gameData = new GameData();
 
     //Data Types Enum
-    public enum SaveTypes { playerType, gameType }
+    public enum SaveTypes { playerDat, gameDat }
 
     //Save Slots
     public static PlayerData loadedPlayerDataSlot1 = null;
@@ -45,16 +45,16 @@ public partial class GameMaster : Node {
     }
 
 
-    public static void SavePlayerData(int slotNum) { Save(SaveTypes.playerType, slotNum); }
-    public static void LoadPlayerData(int slotNum) { Load(SaveTypes.playerType, slotNum, false); }
+    public static void SavePlayerData(int slotNum) { Save(SaveTypes.playerDat, slotNum); }
+    public static void LoadPlayerData(int slotNum) { Load(SaveTypes.playerDat, slotNum, false); }
 
-    public static void LoadPlayerDataSlot(int slotNum) { Load(SaveTypes.playerType, slotNum, true); }
-    public static void DeletePlayerData(int slotNum) { Delete(SaveTypes.playerType, slotNum); }
+    public static void LoadPlayerDataSlot(int slotNum) { Load(SaveTypes.playerDat, slotNum, true); }
+    public static void DeletePlayerData(int slotNum) { Delete(SaveTypes.playerDat, slotNum); }
 
 
-    public static void SaveGameData() { Save(SaveTypes.gameType, 1); }
-    public static void LoadGameData() { Save(SaveTypes.gameType, 1); }
-    public static void DeleteGameData() { Save(SaveTypes.gameType, 1); }
+    public static void SaveGameData() { Save(SaveTypes.gameDat, 1); }
+    public static void LoadGameData() { Load(SaveTypes.gameDat, 1); }
+    public static void DeleteGameData() { Save(SaveTypes.gameDat, 1); }
 
 
     private static void Save(SaveTypes mySaveType, int slotNum) {
@@ -66,10 +66,10 @@ public partial class GameMaster : Node {
         string jsonString = string.Empty;
 
         //Convert entire class to json string.
-        if (mySaveType == SaveTypes.playerType) {
+        if (mySaveType == SaveTypes.playerDat) {
             jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(playerData);
         }
-        if (mySaveType == SaveTypes.gameType) {
+        if (mySaveType == SaveTypes.gameDat) {
             jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(gameData);
         }
 
@@ -83,8 +83,9 @@ public partial class GameMaster : Node {
         string myFilePath = "user://" + mySaveType.ToString() + slotNum + ".sav";
 
         //Can't open file
-        if (!FileAccess.FileExists(myFilePath)) {
-            initializeSlot(SaveTypes.gameType, slotNum);
+        if (FileAccess.FileExists(myFilePath) == false) {
+            GD.Print("File doesnt exist: " +  myFilePath);
+            initializeSlot(mySaveType, slotNum);
             return;
         }
 
@@ -94,7 +95,9 @@ public partial class GameMaster : Node {
         //Read File Contents. File is only one line, so it does not need to be iterated.
         var jsonString = saveGame.GetLine();
 
-        if (mySaveType == SaveTypes.playerType) {
+        GD.Print(jsonString);
+
+        if (mySaveType == SaveTypes.playerDat) {
             if (loadToSlot == false) {
                 Newtonsoft.Json.JsonConvert.PopulateObject(jsonString, playerData);
             } else {
@@ -104,7 +107,7 @@ public partial class GameMaster : Node {
             }
         }
 
-        if (mySaveType == SaveTypes.gameType) {
+        if (mySaveType == SaveTypes.gameDat) {
             Newtonsoft.Json.JsonConvert.PopulateObject(jsonString, gameData);
         }
     }
@@ -114,25 +117,25 @@ public partial class GameMaster : Node {
         string myFilePath = "user://" + mySaveType.ToString() + slotNum + ".sav";
 
         //Overwrite Player Data for Specified Slot
-        if (mySaveType == SaveTypes.playerType) {
-            initializeSlot(SaveTypes.gameType, slotNum);
+        if (mySaveType == SaveTypes.playerDat) {
+            initializeSlot(SaveTypes.gameDat, slotNum);
         }
 
         //Overwrite Default Game Data for Specified Slot
-        if (mySaveType == SaveTypes.gameType) { initializeSlot(SaveTypes.gameType, 1); }
+        if (mySaveType == SaveTypes.gameDat) { initializeSlot(SaveTypes.gameDat, 1); }
 
         //Save to file
         Save(mySaveType, slotNum);
     }
 
     private static void initializeSlot(SaveTypes mySaveType, int slotNum) {
-        if (mySaveType == SaveTypes.playerType) {
+        if (mySaveType == SaveTypes.playerDat) {
             if (slotNum == 0) { playerData = new PlayerData(); playerData.init(); }
-            if (slotNum == 1) { loadedPlayerDataSlot1 = new PlayerData(); loadedPlayerDataSlot1.init(); }
-            if (slotNum == 2) { loadedPlayerDataSlot2 = new PlayerData(); loadedPlayerDataSlot2.init(); }
-            if (slotNum == 3) { loadedPlayerDataSlot3 = new PlayerData(); loadedPlayerDataSlot3.init(); }
+            if (slotNum == 1) { loadedPlayerDataSlot1 = new PlayerData(); loadedPlayerDataSlot1.init(); SavePlayerData(slotNum); }
+            if (slotNum == 2) { loadedPlayerDataSlot2 = new PlayerData(); loadedPlayerDataSlot2.init(); SavePlayerData(slotNum); }
+            if (slotNum == 3) { loadedPlayerDataSlot3 = new PlayerData(); loadedPlayerDataSlot3.init(); SavePlayerData(slotNum); }
         }
-        if (mySaveType == SaveTypes.gameType) { gameData = new GameData(); }
+        if (mySaveType == SaveTypes.gameDat) { gameData = new GameData(); SaveGameData(); }
     }
 
 }
