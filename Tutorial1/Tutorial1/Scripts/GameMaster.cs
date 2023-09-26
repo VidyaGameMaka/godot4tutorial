@@ -58,6 +58,9 @@ public partial class GameMaster : Node {
 
 
     private static void Save(SaveTypes mySaveType, int slotNum) {
+        //Don't save slot 0
+        if (slotNum == 0) { return; }
+
         string myFilePath = "user://" + mySaveType.ToString() + slotNum + ".sav";
 
         //Save File Object
