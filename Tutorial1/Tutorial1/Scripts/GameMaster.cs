@@ -57,7 +57,7 @@ public partial class GameMaster : Node {
 
     public static void SaveGameData() { Save(SaveTypes.gameDat, 1); }
     public static void LoadGameData() { Load(SaveTypes.gameDat, 1); }
-    public static void DeleteGameData() { Save(SaveTypes.gameDat, 1); }
+    public static void DeleteGameData() { Delete(SaveTypes.gameDat, 1); }
 
 
     private static void Save(SaveTypes mySaveType, int slotNum) {
