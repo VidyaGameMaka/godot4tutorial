@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Tutorial3"
+run/main_scene="res://Scenes/20_MainMenu.tscn"
+config/features=PackedStringArray("4.1", "C#", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameMaster="*res://Scripts/GameMaster.cs"
+SceneManager="*res://Scripts/SceneManager.cs"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=270
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Tutorial3"
+
+[rendering]
+
+renderer/rendering_method="mobile"
