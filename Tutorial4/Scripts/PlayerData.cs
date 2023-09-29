@@ -1,5 +1,4 @@
-using Godot;
-using System;
+using System.Collections.Generic;
 
 public class PlayerData {
 
@@ -7,14 +6,13 @@ public class PlayerData {
     public string saveFileVersion = GameMaster.gameVersion;
     public int checkpoint = 0;
     public int overworldCheckpoint = 0;
-    public eSceneNames savedScene;
+    public eSceneNames savedScene = eSceneNames.Level1;
 
-    public Godot.Collections.Dictionary<string, int> sampleDictionary = new Godot.Collections.Dictionary<string, int>();
-
-    public void init() {
-        sampleDictionary.Add("zero", 0);
-        sampleDictionary.Add("one", 1);
-        sampleDictionary.Add("two", 2);
-    }
+    public Dictionary<string, string> sampleDictionary = new Dictionary<string, string>() {
+        { "zero", "0" },
+        { "one", "1" },
+        { "two", "2" },
+        { "test", "original test" },
+    };
 
 }

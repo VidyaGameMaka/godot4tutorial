@@ -30,31 +30,24 @@ public partial class GameMaster : Node {
     public static PlayerData loadedPlayerDataSlot3 = new PlayerData();
 
     public override void _Ready() {
-        instance = this;
+        instance = this;        
 
-        GD.Print("Gamemaster Ready");
-
-        //Populate Dictionaries
-        playerData.init();
-        loadedPlayerDataSlot1.init();
-        loadedPlayerDataSlot2.init();
-        loadedPlayerDataSlot3.init();
-
-        //Load Game System Data
-        LoadGameData();
-
-        //temp to remake save files
+        //To recreate the save files, uncomment these three lines
+        //SaveGameData();
         //SavePlayerData(1);
         //SavePlayerData(2);
         //SavePlayerData(3);
+
+        //Load Game System Data
+        LoadGameData();      
 
         //Load saved Player Data into seperate fields so they can be displayed / manipulated on the save/load menu
         LoadPlayerDataSlot(1);
         LoadPlayerDataSlot(2);
         LoadPlayerDataSlot(3);
 
-        //Set full screen
-        //DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
+        //This will tell us that GameMaster object was included in autoload.
+        GD.Print("Gamemaster Ready");
     }
 
     //Player Data Methods
@@ -68,7 +61,6 @@ public partial class GameMaster : Node {
     public static void SaveGameData() { Save(SaveTypes.gameDat, 1); }
     public static void LoadGameData() { Load(SaveTypes.gameDat, 1); }
     public static void DeleteGameData() { Delete(SaveTypes.gameDat, 1); }
-
 
     private static void Save(SaveTypes mySaveType, int slotNum) {
         //Don't save slot 0
@@ -132,7 +124,7 @@ public partial class GameMaster : Node {
 
         //Overwrite Player Data for Specified Slot
         if (mySaveType == SaveTypes.playerDat) {
-            initializeSlot(SaveTypes.gameDat, slotNum);
+            initializeSlot(SaveTypes.playerDat, slotNum);
         }
 
         //Overwrite Default Game Data for Specified Slot
@@ -144,10 +136,10 @@ public partial class GameMaster : Node {
 
     private static void initializeSlot(SaveTypes mySaveType, int slotNum) {
         if (mySaveType == SaveTypes.playerDat) {
-            if (slotNum == 0) { playerData = new PlayerData(); playerData.init(); }
-            if (slotNum == 1) { loadedPlayerDataSlot1 = new PlayerData(); loadedPlayerDataSlot1.init(); SavePlayerData(slotNum); }
-            if (slotNum == 2) { loadedPlayerDataSlot2 = new PlayerData(); loadedPlayerDataSlot2.init(); SavePlayerData(slotNum); }
-            if (slotNum == 3) { loadedPlayerDataSlot3 = new PlayerData(); loadedPlayerDataSlot3.init(); SavePlayerData(slotNum); }
+            if (slotNum == 0) { playerData = new PlayerData(); }
+            if (slotNum == 1) { loadedPlayerDataSlot1 = new PlayerData(); SavePlayerData(slotNum); }
+            if (slotNum == 2) { loadedPlayerDataSlot2 = new PlayerData(); SavePlayerData(slotNum); }
+            if (slotNum == 3) { loadedPlayerDataSlot3 = new PlayerData(); SavePlayerData(slotNum); }
         }
         if (mySaveType == SaveTypes.gameDat) { gameData = new GameData(); SaveGameData(); }
     }

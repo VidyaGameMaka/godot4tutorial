@@ -3,11 +3,35 @@ using System;
 
 public partial class MainMenu20 : Node2D {
 
-    [Export] public Button new1, load1, delete1, new2, load2, delete2, new3, load3, delete3;
+    [ExportGroup("Buttons")]
+    [ExportSubgroup("Button Set 1")]
+    [Export] public Button new1;
+    [Export] public Button load1;
+    [Export] public Button delete1;
+
+    [ExportSubgroup("Button Set 2")]
+    [Export] public Button new2;
+    [Export] public Button load2;
+    [Export] public Button delete2;
+
+    [ExportSubgroup("Button Set 3")]
+    [Export] public Button new3;
+    [Export] public Button load3;
+    [Export] public Button delete3;
+
+    [ExportGroup("Labels")]
+    [Export] public Label infoLabel1;
+    [Export] public Label infoLabel2;
+    [Export] public Label infoLabel3;
 
     public override void _Ready() {
+        SetupMenu();
+    }
 
+    private void SetupMenu() {
         DisableAllButtons();
+
+        UpdateLabels();
 
         if (GameMaster.loadedPlayerDataSlot1.newFile == true) {
             new1.Disabled = false;
@@ -39,11 +63,26 @@ public partial class MainMenu20 : Node2D {
             delete3.Disabled = false;
             delete3.Visible = true;
         }
+    }
 
+    private void UpdateLabels() {
+        infoLabel1.Text = "New file: " + GameMaster.loadedPlayerDataSlot1.newFile.ToString() + "     ";
+        infoLabel1.Text += "Scene: " + GameMaster.loadedPlayerDataSlot1.savedScene.ToString() + "     ";
+        infoLabel1.Text += "Test: " + GameMaster.loadedPlayerDataSlot1.sampleDictionary["test"];
+
+
+        infoLabel2.Text = "New file: " + GameMaster.loadedPlayerDataSlot1.newFile.ToString() + "     ";
+        infoLabel2.Text += "Scene: " + GameMaster.loadedPlayerDataSlot1.savedScene.ToString() + "     ";
+        infoLabel2.Text += "Test: " + GameMaster.loadedPlayerDataSlot1.sampleDictionary["test"];
+
+
+        infoLabel3.Text = "New file: " + GameMaster.loadedPlayerDataSlot1.newFile.ToString() + "     ";
+        infoLabel3.Text += "Scene: " + GameMaster.loadedPlayerDataSlot1.savedScene.ToString() + "     ";
+        infoLabel3.Text += "Test: " + GameMaster.loadedPlayerDataSlot1.sampleDictionary["test"];
     }
 
 
-    public void _on_new_button_up(int myInt) {
+    public void _on_new_load_button_up(int myInt) {
         GameMaster.currentSlotNum = myInt;
 
         if (myInt == 1) {
@@ -58,13 +97,16 @@ public partial class MainMenu20 : Node2D {
 
         GameMaster.playerData.newFile = false;
         GameMaster.playerData.saveFileVersion = GameMaster.gameVersion;
-
         GameMaster.SavePlayerData(GameMaster.currentSlotNum);
-
-        SceneManager.instance.ChangeScene(eSceneNames.Level1);
+        SceneManager.instance.ChangeScene(GameMaster.playerData.savedScene);
     }
 
-   
+   public void _on_delete_button_up(int myInt) {
+        GameMaster.DeletePlayerData(myInt);
+        SetupMenu();
+   }
+
+
     public void _on_quit_button_button_up() {
         SceneManager.instance.QuitGame();
     }

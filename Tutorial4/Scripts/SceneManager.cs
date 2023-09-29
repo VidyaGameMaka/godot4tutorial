@@ -20,6 +20,9 @@ public partial class SceneManager : Node {
 
     public override void _Ready() {
         instance = this;
+
+        //This will tell us that SceneManager object was included in autoload.
+        GD.Print("SceneManager Ready");
     }
 
     public void ChangeScene(eSceneNames mySceneName) {

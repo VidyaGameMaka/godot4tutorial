@@ -2,6 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://damoa1si6ve1e" path="res://Prefabs/MainMenu_PFB.tscn" id="1_p3eau"]
 
-[node name="Node2D" type="Node2D"]
+[node name="10_Main" type="Node2D"]
 
 [node name="20_MainMenu" parent="." instance=ExtResource("1_p3eau")]
