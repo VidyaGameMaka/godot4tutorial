@@ -1,0 +1,100 @@
+[gd_scene load_steps=2 format=3 uid="uid://damoa1si6ve1e"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu20.cs" id="1_jac7r"]
+
+[node name="20_MainMenu" type="Node2D" node_paths=PackedStringArray("new1", "load1", "delete1", "new2", "load2", "delete2", "new3", "load3", "delete3")]
+script = ExtResource("1_jac7r")
+new1 = NodePath("CanvasLayer/Control/newButton1")
+load1 = NodePath("CanvasLayer/Control/loadButton1")
+delete1 = NodePath("CanvasLayer/Control/deleteButton1")
+new2 = NodePath("CanvasLayer/Control/newButton2")
+load2 = NodePath("CanvasLayer/Control/loadButton2")
+delete2 = NodePath("CanvasLayer/Control/deleteButton2")
+new3 = NodePath("CanvasLayer/Control/newButton3")
+load3 = NodePath("CanvasLayer/Control/loadButton3")
+delete3 = NodePath("CanvasLayer/Control/deleteButton3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="newButton1" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "new1"
+
+[node name="loadButton1" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "load1"
+
+[node name="deleteButton1" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_right = 131.0
+offset_bottom = 31.0
+text = "delete1"
+
+[node name="newButton2" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 54.0
+offset_bottom = 71.0
+text = "new2"
+
+[node name="loadButton2" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 51.0
+offset_bottom = 71.0
+text = "load2"
+
+[node name="deleteButton2" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 40.0
+offset_right = 131.0
+offset_bottom = 71.0
+text = "delete2"
+
+[node name="newButton3" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 54.0
+offset_bottom = 111.0
+text = "new3"
+
+[node name="loadButton3" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 51.0
+offset_bottom = 111.0
+text = "load3"
+
+[node name="deleteButton3" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 80.0
+offset_right = 131.0
+offset_bottom = 111.0
+text = "delete3"
+
+[node name="quitButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 54.0
+offset_bottom = 151.0
+text = "Quit"
+
+[connection signal="button_up" from="CanvasLayer/Control/newButton1" to="." method="_on_new_button_up" binds= [1]]
+[connection signal="button_up" from="CanvasLayer/Control/newButton2" to="." method="_on_new_button_up" binds= [2]]
+[connection signal="button_up" from="CanvasLayer/Control/newButton3" to="." method="_on_new_button_up" binds= [3]]
+[connection signal="button_up" from="CanvasLayer/Control/quitButton" to="." method="_on_quit_button_button_up"]
