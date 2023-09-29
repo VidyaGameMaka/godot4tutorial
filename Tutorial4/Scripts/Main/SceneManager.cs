@@ -13,10 +13,10 @@ public partial class SceneManager : Node {
     public static SceneManager instance;
 
     //Update this Dictionary whenever you add or change a scene you want included in the Scene Manager.
-    public Dictionary<eSceneNames, SceneData> sceneDictionary = new Dictionary<eSceneNames, SceneData>() {
-        {eSceneNames.Main, new SceneData("res://Scenes/10_Main.tscn", "Main", false) },
-        {eSceneNames.Level1, new SceneData("res://Scenes/20_Level1.tscn", "Level One", true) },
-        {eSceneNames.Level2, new SceneData("res://Scenes/30_Level2.tscn", "Level Two", true) },
+    public Dictionary<eSceneNames, SceneCstr> sceneDictionary = new Dictionary<eSceneNames, SceneCstr>() {
+        {eSceneNames.Main, new SceneCstr("res://Scenes/10_Main.tscn", "Main", false) },
+        {eSceneNames.Level1, new SceneCstr("res://Scenes/20_Level1.tscn", "Level One", true) },
+        {eSceneNames.Level2, new SceneCstr("res://Scenes/30_Level2.tscn", "Level Two", true) },
     };
 
     public override void _Ready() {
