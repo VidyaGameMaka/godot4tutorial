@@ -15,6 +15,8 @@ public partial class GameMaster : Node {
     public static bool pauseAllowed = false;
     public static bool ignoreUserInput = false;
 
+    public static bool showDebuggingMessages = true;
+
     //Base Player Data
     public static PlayerData playerData = new PlayerData();
 
@@ -47,7 +49,7 @@ public partial class GameMaster : Node {
         LoadPlayerDataSlot(3);
 
         //This will tell us that GameMaster object was included in autoload.
-        GD.Print("Gamemaster Ready");
+        GD.Print("(GameMaster) Gamemaster Ready");
     }
 
     //Player Data Methods
@@ -62,6 +64,8 @@ public partial class GameMaster : Node {
     public static void LoadGameData() { Load(SaveTypes.gameDat, 1); }
     public static void DeleteGameData() { Delete(SaveTypes.gameDat, 1); }
 
+    
+    //Saves the runtime gameData or playerData to the specified slot
     private static void Save(SaveTypes mySaveType, int slotNum) {
         //Don't save slot 0
         if (slotNum == 0) { return; }
@@ -71,16 +75,16 @@ public partial class GameMaster : Node {
         //Save File Object
         using var saveGame = FileAccess.Open(myFilePath, FileAccess.ModeFlags.Write);
 
+        //Empty String Object to hold the data
         string jsonString = string.Empty;
 
-        //Convert entire class to json string.
+        //Convert Entire Class to Json String using NewtonSoft.Json.
         if (mySaveType == SaveTypes.playerDat) {
             jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(playerData);
         }
         if (mySaveType == SaveTypes.gameDat) {
             jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(gameData);
         }
-
 
         //Write String to File
         saveGame.StoreLine(jsonString);
@@ -90,9 +94,9 @@ public partial class GameMaster : Node {
     private static void Load(SaveTypes mySaveType, int slotNum, bool loadToSlot = false) {
         string myFilePath = "user://" + mySaveType.ToString() + slotNum + ".sav";
 
-        //Can't open file
+        //Can't open file. Initialize the slot.
         if (FileAccess.FileExists(myFilePath) == false) {
-            GD.Print("File doesnt exist: " +  myFilePath);
+            if (showDebuggingMessages) { GD.Print("(GameMaster) File doesnt exist: " + myFilePath); }
             initializeSlot(mySaveType, slotNum);
             return;
         }

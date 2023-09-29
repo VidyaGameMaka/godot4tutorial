@@ -71,14 +71,14 @@ public partial class MainMenu20 : Node2D {
         infoLabel1.Text += "Test: " + GameMaster.loadedPlayerDataSlot1.sampleDictionary["test"];
 
 
-        infoLabel2.Text = "New file: " + GameMaster.loadedPlayerDataSlot1.newFile.ToString() + "     ";
-        infoLabel2.Text += "Scene: " + GameMaster.loadedPlayerDataSlot1.savedScene.ToString() + "     ";
-        infoLabel2.Text += "Test: " + GameMaster.loadedPlayerDataSlot1.sampleDictionary["test"];
+        infoLabel2.Text = "New file: " + GameMaster.loadedPlayerDataSlot2.newFile.ToString() + "     ";
+        infoLabel2.Text += "Scene: " + GameMaster.loadedPlayerDataSlot2.savedScene.ToString() + "     ";
+        infoLabel2.Text += "Test: " + GameMaster.loadedPlayerDataSlot2.sampleDictionary["test"];
 
 
-        infoLabel3.Text = "New file: " + GameMaster.loadedPlayerDataSlot1.newFile.ToString() + "     ";
-        infoLabel3.Text += "Scene: " + GameMaster.loadedPlayerDataSlot1.savedScene.ToString() + "     ";
-        infoLabel3.Text += "Test: " + GameMaster.loadedPlayerDataSlot1.sampleDictionary["test"];
+        infoLabel3.Text = "New file: " + GameMaster.loadedPlayerDataSlot3.newFile.ToString() + "     ";
+        infoLabel3.Text += "Scene: " + GameMaster.loadedPlayerDataSlot3.savedScene.ToString() + "     ";
+        infoLabel3.Text += "Test: " + GameMaster.loadedPlayerDataSlot3.sampleDictionary["test"];
     }
 
 
@@ -102,10 +102,19 @@ public partial class MainMenu20 : Node2D {
     }
 
    public void _on_delete_button_up(int myInt) {
+        if (GameMaster.showDebuggingMessages) { GD.Print("(MainMenu) Slot deleted: " + myInt); }
         GameMaster.DeletePlayerData(myInt);
         SetupMenu();
    }
 
+    public void _on_allreset_button_button_up() {
+        if (GameMaster.showDebuggingMessages) { GD.Print("(MainMenu) All Data reset!"); }
+        GameMaster.DeleteGameData();
+        GameMaster.DeletePlayerData(1);
+        GameMaster.DeletePlayerData(2);
+        GameMaster.DeletePlayerData(3);
+        SetupMenu();
+    }
 
     public void _on_quit_button_button_up() {
         SceneManager.instance.QuitGame();

@@ -12,6 +12,7 @@ public partial class SceneManager : Node {
 
     public static SceneManager instance;
 
+    //Update this Dictionary whenever you add or change a scene you want included in the Scene Manager.
     public Dictionary<eSceneNames, SceneData> sceneDictionary = new Dictionary<eSceneNames, SceneData>() {
         {eSceneNames.Main, new SceneData("res://Scenes/10_Main.tscn", "Main", false) },
         {eSceneNames.Level1, new SceneData("res://Scenes/20_Level1.tscn", "Level One", true) },
@@ -22,18 +23,32 @@ public partial class SceneManager : Node {
         instance = this;
 
         //This will tell us that SceneManager object was included in autoload.
-        GD.Print("SceneManager Ready");
+        GD.Print("(SceneManager) SceneManager Ready");
     }
 
     public void ChangeScene(eSceneNames mySceneName) {
         string myPath = sceneDictionary[mySceneName].path;
         GameMaster.pauseAllowed = sceneDictionary[mySceneName].pauseAllowed;
+        GameMaster.playerData.savedScene = mySceneName;
         GetTree().ChangeSceneToFile(myPath);
     }
 
-    //Todo - Save the current game before the user quits
+    //Receive notification from the Operating System's Window Manager
+    public override void _Notification(int what) {
+        if (what == NotificationWMCloseRequest) {
+            GD.Print("(SceneManager) Quit Requested by Window Manager.");
+
+            //Save the Current Game on SceneManager and Quit
+            QuitGame();
+        }
+    }
+
+    //Save GameData and PlayerData then Quit
     public void QuitGame() {
+        GD.Print("(SceneManager) Saving and Quitting");
         GameMaster.SaveGameData();
+
+        
         GameMaster.SavePlayerData(GameMaster.currentSlotNum);
         GetTree().Quit();
     }

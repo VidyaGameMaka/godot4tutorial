@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://damoa1si6ve1e"]
 
-[ext_resource type="Script" path="res://Scripts/MainMenu20.cs" id="1_jac7r"]
+[ext_resource type="Script" path="res://Scripts/Main/MainMenu20.cs" id="1_e21ky"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_06p2i"]
 font_size = 8
 
 [node name="20_MainMenu" type="Node2D" node_paths=PackedStringArray("new1", "load1", "delete1", "new2", "load2", "delete2", "new3", "load3", "delete3", "infoLabel1", "infoLabel2", "infoLabel3")]
-script = ExtResource("1_jac7r")
+script = ExtResource("1_e21ky")
 new1 = NodePath("CanvasLayer/Control/Panel1/newButton1")
 load1 = NodePath("CanvasLayer/Control/Panel1/loadButton1")
 delete1 = NodePath("CanvasLayer/Control/Panel1/deleteButton1")
@@ -172,6 +172,13 @@ offset_right = 54.0
 offset_bottom = 151.0
 text = "Quit"
 
+[node name="resetButton" type="Button" parent="CanvasLayer/Control/Panel4"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 54.0
+offset_bottom = 231.0
+text = "Reset all Data"
+
 [connection signal="button_up" from="CanvasLayer/Control/Panel1/newButton1" to="." method="_on_new_load_button_up" binds= [1]]
 [connection signal="button_up" from="CanvasLayer/Control/Panel1/loadButton1" to="." method="_on_new_load_button_up" binds= [1]]
 [connection signal="button_up" from="CanvasLayer/Control/Panel1/deleteButton1" to="." method="_on_delete_button_up" binds= [1]]
@@ -182,3 +189,4 @@ text = "Quit"
 [connection signal="button_up" from="CanvasLayer/Control/Panel3/loadButton3" to="." method="_on_new_load_button_up" binds= [3]]
 [connection signal="button_up" from="CanvasLayer/Control/Panel3/deleteButton3" to="." method="_on_delete_button_up" binds= [3]]
 [connection signal="button_up" from="CanvasLayer/Control/Panel4/quitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/Panel4/resetButton" to="." method="_on_allreset_button_button_up"]

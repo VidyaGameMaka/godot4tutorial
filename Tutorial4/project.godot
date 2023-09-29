@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameMaster="*res://Scripts/GameMaster.cs"
-SceneManager="*res://Scripts/SceneManager.cs"
+GameMaster="*res://Scripts/Main/GameMaster.cs"
+SceneManager="*res://Scripts/Main/SceneManager.cs"
 
 [display]
 
