@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class MainMenu20 : Node2D {
+public partial class SaveLoadDeleteMenu : CanvasLayer {
 
     [ExportGroup("Buttons")]
     [ExportSubgroup("Button Set 1")]

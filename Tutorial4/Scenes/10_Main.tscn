@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://deqp25cl6ddeg"]
+[gd_scene load_steps=3 format=3 uid="uid://deqp25cl6ddeg"]
 
-[ext_resource type="PackedScene" uid="uid://damoa1si6ve1e" path="res://Prefabs/MainMenu_PFB.tscn" id="1_p3eau"]
+[ext_resource type="Script" path="res://Prefabs/Menus/Scripts/MainMenu.cs" id="1_tf0qk"]
+[ext_resource type="PackedScene" uid="uid://damoa1si6ve1e" path="res://Prefabs/Menus/SaveLoadDeleteMenu_PFB.tscn" id="1_vwfqs"]
 
-[node name="10_Main" type="Node2D"]
+[node name="10_Main" type="Node2D" node_paths=PackedStringArray("saveLoadDelete")]
+script = ExtResource("1_tf0qk")
+saveLoadDelete = NodePath("SaveLoadQuitMenu")
 
-[node name="20_MainMenu" parent="." instance=ExtResource("1_p3eau")]
+[node name="SaveLoadQuitMenu" parent="." instance=ExtResource("1_vwfqs")]
