@@ -47,8 +47,7 @@ public partial class SceneManager : Node {
     public void QuitGame() {
         GD.Print("(SceneManager) Saving and Quitting");
         GameMaster.SaveGameData();
-
-        
+       
         GameMaster.SavePlayerData(GameMaster.currentSlotNum);
         GetTree().Quit();
     }
