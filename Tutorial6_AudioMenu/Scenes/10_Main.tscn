@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://deqp25cl6ddeg"]
+
+[ext_resource type="Script" path="res://Prefabs/Menus/Scripts/MainMenu.cs" id="1_tf0qk"]
+[ext_resource type="PackedScene" uid="uid://damoa1si6ve1e" path="res://Prefabs/Menus/SaveLoadDeleteMenu_PFB.tscn" id="1_vwfqs"]
+[ext_resource type="PackedScene" uid="uid://bnbilflc6abgg" path="res://Prefabs/Menus/AudioMenu_PFB.tscn" id="3_cqcbn"]
+
+[node name="10_Main" type="Node2D" node_paths=PackedStringArray("saveLoadDelete")]
+script = ExtResource("1_tf0qk")
+saveLoadDelete = NodePath("SaveLoadQuitMenu")
+
+[node name="SaveLoadQuitMenu" parent="." instance=ExtResource("1_vwfqs")]
+visible = false
+
+[node name="AudioMenu" parent="." instance=ExtResource("3_cqcbn")]
