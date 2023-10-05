@@ -29,7 +29,7 @@ public partial class AudioMenu : CanvasLayer {
         male_index = AudioServer.GetBusIndex("Male");
         female_index = AudioServer.GetBusIndex("Female");
 
-        //Set Initial Slider Values
+        //Assign Slider Nodes
         master_hslider = GetNode<HSlider>("master_hslider");
         music_hslider = GetNode<HSlider>("music_hslider");
         sfx_hslider = GetNode<HSlider>("sfx_hslider");
@@ -37,6 +37,7 @@ public partial class AudioMenu : CanvasLayer {
         male_hslider = GetNode<HSlider>("male_hslider");
         female_hslider = GetNode<HSlider>("female_hslider");
 
+        //Set the initial slider values
         master_hslider.Value = GameMaster.gameData.masterVolume;
         music_hslider.Value = GameMaster.gameData.musicVolume;
         sfx_hslider.Value = GameMaster.gameData.sfxVolume;
