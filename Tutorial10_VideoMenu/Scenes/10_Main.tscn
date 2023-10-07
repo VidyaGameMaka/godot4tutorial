@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://deqp25cl6ddeg"]
+
+[ext_resource type="Script" path="res://Prefabs/Menus/Scripts/MainMenu.cs" id="1_hb8wx"]
+[ext_resource type="PackedScene" uid="uid://damoa1si6ve1e" path="res://Prefabs/Menus/SaveLoadDeleteMenu_PFB.tscn" id="1_vwfqs"]
+[ext_resource type="PackedScene" uid="uid://bnbilflc6abgg" path="res://Prefabs/Menus/AudioMenu_PFB.tscn" id="3_cqcbn"]
+[ext_resource type="PackedScene" uid="uid://boilmx0svyvb7" path="res://Prefabs/Menus/VideoMenu_PFB.tscn" id="4_i1owg"]
+
+[node name="10_Main" type="Node2D" node_paths=PackedStringArray("canvasLayers")]
+script = ExtResource("1_hb8wx")
+canvasLayers = [NodePath("Main"), NodePath("SaveLoadQuitMenu"), NodePath("AudioMenu"), NodePath("VideoMenu_PFB")]
+
+[node name="SaveLoadQuitMenu" parent="." instance=ExtResource("1_vwfqs")]
+visible = false
+
+[node name="AudioMenu" parent="." instance=ExtResource("3_cqcbn")]
+visible = false
+
+[node name="VideoMenu_PFB" parent="." instance=ExtResource("4_i1owg")]
+visible = false
+
+[node name="Main" type="CanvasLayer" parent="."]
+
+[node name="startButton" type="Button" parent="Main"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Start"
+
+[node name="audioButton" type="Button" parent="Main"]
+offset_top = 40.0
+offset_right = 53.0
+offset_bottom = 71.0
+text = "Audio"
+
+[node name="videoButton" type="Button" parent="Main"]
+offset_top = 80.0
+offset_right = 42.0
+offset_bottom = 111.0
+text = "Video"
+
+[node name="quitButton" type="Button" parent="Main"]
+offset_top = 120.0
+offset_right = 42.0
+offset_bottom = 151.0
+text = "Quit"
+
+[connection signal="button_up" from="Main/startButton" to="." method="ShowLayer" binds= [1]]
+[connection signal="button_up" from="Main/audioButton" to="." method="ShowLayer" binds= [2]]
+[connection signal="button_up" from="Main/videoButton" to="." method="ShowLayer" binds= [3]]
+[connection signal="button_up" from="Main/quitButton" to="." method="_on_quit_button_button_up"]
