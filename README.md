@@ -7,4 +7,6 @@ Tutorial 2 - https://youtu.be/P8gBda5AwPE
 Tutorial 3 - https://youtu.be/IHvJd8BCRtI  
 Tutorial 4 - https://youtu.be/I0QzwAQJymY  
 Tutorial 5 - https://youtu.be/nwbJ6gdeiHc  
-Tutorial 6 - Coming Soon  
+Tutorial 6 - https://youtu.be/1RkKUIKadpI  
+Tutorial 7 - Video Only: https://youtu.be/_PANRMJoIRE  
+Tutorial 8 - https://youtu.be/FWX72RW3Cag  

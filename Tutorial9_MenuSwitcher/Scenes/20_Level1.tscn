@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://be11snw13ct0b"]
+
+[ext_resource type="Texture2D" uid="uid://yc6tpxp5e3rd" path="res://icon.svg" id="1_8srll"]
+[ext_resource type="Script" path="res://Scripts/Testing/PlayerDataTest.cs" id="1_teobr"]
+
+[node name="20_Level1" type="Node2D" node_paths=PackedStringArray("myLabel")]
+script = ExtResource("1_teobr")
+myLabel = NodePath("CanvasLayer/Control/Label")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(407, 94)
+texture = ExtResource("1_8srll")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 270.0
+offset_bottom = 270.0
+text = "Default Text"
