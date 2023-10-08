@@ -6,7 +6,7 @@ public partial class AudioMenu : CanvasLayer {
     //Bus Indexes are configured in GameMaster
 
     //Labels
-    private Label master_label, music_label, sfx_label, voice_label, male_label, female_label;      
+    private Label master_label, music_label, sfx_label, voice_label, male_label, female_label;
 
     //Sliders
     private HSlider master_hslider, music_hslider, sfx_hslider, voice_hslider, male_hslider, female_hslider;
@@ -41,32 +41,32 @@ public partial class AudioMenu : CanvasLayer {
 	public void _on_slider_value_changed(float myFloat, string myString) {
         switch (myString) {
             case "Master":
-                master_label.Text = "Master: " + myFloat.ToString();
+                master_label.Text = "Master: " + (int)(myFloat * 100) + "%";
                 AudioServer.SetBusVolumeDb(GameMaster.master_index, Mathf.LinearToDb(myFloat));
                 GameMaster.gameData.masterVolume = myFloat;
                 break;
             case "Music":
-                music_label.Text = "Music: " + myFloat.ToString();
+                music_label.Text = "Music: " + (int)(myFloat * 100) + "%";
                 AudioServer.SetBusVolumeDb(GameMaster.music_index, Mathf.LinearToDb(myFloat));
                 GameMaster.gameData.musicVolume = myFloat;
                 break;
             case "SFX":
-                sfx_label.Text = "SFX: " + myFloat.ToString();
+                sfx_label.Text = "SFX: " + (int)(myFloat * 100) + "%";
                 AudioServer.SetBusVolumeDb(GameMaster.sfx_index, Mathf.LinearToDb(myFloat));
                 GameMaster.gameData.sfxVolume = myFloat;
                 break;
             case "Voice":
-                voice_label.Text = "Voice: " + myFloat.ToString();
+                voice_label.Text = "Voice: " + (int)(myFloat * 100) + "%";
                 AudioServer.SetBusVolumeDb(GameMaster.voice_index, Mathf.LinearToDb(myFloat));
                 GameMaster.gameData.voiceVolume = myFloat;
                 break;
             case "Male":
-                male_label.Text = "Male: " + myFloat.ToString();
+                male_label.Text = "Male: " + (int)(myFloat * 100) + "%";
                 AudioServer.SetBusVolumeDb(GameMaster.male_index, Mathf.LinearToDb(myFloat));
                 GameMaster.gameData.maleVolume = myFloat;
                 break;
             case "Female":
-                female_label.Text = "Female: " + myFloat.ToString();
+                female_label.Text = "Female: " + (int)(myFloat * 100) + "%";
                 AudioServer.SetBusVolumeDb(GameMaster.female_index, Mathf.LinearToDb(myFloat));
                 GameMaster.gameData.femaleVolume = myFloat;
                 break;

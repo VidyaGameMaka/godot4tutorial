@@ -20,14 +20,24 @@ public partial class VideoMenu : CanvasLayer {
             winCheckButton.ButtonPressed = false;
         }
 
+        //Set Initial Value for the Window Label
+        SetWindowLabel(winCheckButton.ButtonPressed);
+
         //Add the defined resolutions above to the options button
         AddResolutionsToButton();
 	}
 
+    private void SetWindowLabel(bool isSet) {
+        if (isSet == true) {
+            winLabel.Text = "Full Screen";
+        } else {
+            winLabel.Text = "Windowed";
+        }
+    }
+
     private void AddResolutionsToButton() {
         //List of Resolutions is store in GameData.cs
-        //Iterate through each entry in resolutionList array and add them as strings to the button
-        GD.Print(GameMaster.gameData.windowResolutions.Count);
+        //Iterate through each entry in resolutionList array and add them as strings to the button       
         foreach (var item in GameMaster.gameData.windowResolutions) {           
             string myString = item.Key + "x" + item.Value;
             resOptionsButton.AddItem(myString);
@@ -41,6 +51,7 @@ public partial class VideoMenu : CanvasLayer {
 
     public void _on_windowmode_check_button_toggled(bool toggled) {
         GameMaster.gameData.isFullScreen = toggled;
+        SetWindowLabel(toggled);
     }
 
     public void _on_resolution_options_button_item_selected(int mySelectedRez) {
@@ -48,7 +59,7 @@ public partial class VideoMenu : CanvasLayer {
     }
 
     public void _on_apply_button_button_up() {
-        GameMaster.ApplyGameDataVideoSettings();
+        GameMaster.ApplyGameDataVideoSettings();       
     }
 
 }

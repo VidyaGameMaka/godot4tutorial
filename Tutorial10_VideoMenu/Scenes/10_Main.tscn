@@ -24,24 +24,28 @@ visible = false
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Start"
+metadata/_edit_use_anchors_ = true
 
 [node name="audioButton" type="Button" parent="Main"]
 offset_top = 40.0
 offset_right = 53.0
 offset_bottom = 71.0
 text = "Audio"
+metadata/_edit_use_anchors_ = true
 
 [node name="videoButton" type="Button" parent="Main"]
 offset_top = 80.0
 offset_right = 42.0
 offset_bottom = 111.0
 text = "Video"
+metadata/_edit_use_anchors_ = true
 
 [node name="quitButton" type="Button" parent="Main"]
 offset_top = 120.0
 offset_right = 42.0
 offset_bottom = 151.0
 text = "Quit"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="button_up" from="Main/startButton" to="." method="ShowLayer" binds= [1]]
 [connection signal="button_up" from="Main/audioButton" to="." method="ShowLayer" binds= [2]]

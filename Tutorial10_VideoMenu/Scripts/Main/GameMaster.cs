@@ -45,17 +45,18 @@ public partial class GameMaster : Node {
         //SavePlayerData(3);
 
         //Load Game System Data
-        LoadGameData();      
+        LoadGameData();
 
         //Load saved Player Data into seperate fields so they can be displayed / manipulated on the save/load menu
         LoadPlayerDataSlot(1);
         LoadPlayerDataSlot(2);
         LoadPlayerDataSlot(3);
 
-        //Apply GameData Video Settings on Ready
+        //Apply GameData Video Settings on Game Start
         ApplyGameDataVideoSettings();
 
-        //Apply GameData Audio Settings on Ready
+        //Apply GameData Audio Settings on Game Start
+        SetupAudioBusIndexes();
         ApplyGameDataAudioSettings();
 
         //This will tell us that GameMaster object was included in autoload.
@@ -81,7 +82,7 @@ public partial class GameMaster : Node {
         SaveGameData();
     }
 
-    public static void ApplyGameDataAudioSettings() {
+    private void SetupAudioBusIndexes() {
         //Assign Bus Indexes
         master_index = AudioServer.GetBusIndex("Master");
         music_index = AudioServer.GetBusIndex("Music");
@@ -89,7 +90,9 @@ public partial class GameMaster : Node {
         voice_index = AudioServer.GetBusIndex("Voice");
         male_index = AudioServer.GetBusIndex("Male");
         female_index = AudioServer.GetBusIndex("Female");
+    }
 
+    public static void ApplyGameDataAudioSettings() {
         AudioServer.SetBusVolumeDb(master_index, Mathf.LinearToDb(gameData.masterVolume));
         AudioServer.SetBusVolumeDb(music_index, Mathf.LinearToDb(gameData.musicVolume));
         AudioServer.SetBusVolumeDb(sfx_index, Mathf.LinearToDb(gameData.sfxVolume));

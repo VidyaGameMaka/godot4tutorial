@@ -7,7 +7,7 @@ public partial class PlayerDataTest : Node {
 
 	public override void _Ready() {
 
-		myLabel.Text = "GetTree().CurrentScene.SceneFilePath: " + GetTree().CurrentScene.SceneFilePath + "\n";
+		myLabel.Text = "GetTree().CurrentScene.SceneFilePath: \n" + GetTree().CurrentScene.SceneFilePath + "\n";
 		myLabel.Text += "GameMaster Current Slot " + GameMaster.currentSlotNum + "\n";
 		myLabel.Text += "Sample Dictionary Text: " + GameMaster.playerData.sampleDictionary["test"];
 
