@@ -13,8 +13,8 @@ max_value = 1.0
 step = 0.001
 
 [node name="master_label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 118.0
+offset_bottom = 26.0
 text = "Master Volume"
 
 [node name="music_hslider" type="HSlider" parent="."]

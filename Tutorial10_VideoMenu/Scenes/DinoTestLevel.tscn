@@ -11,6 +11,8 @@ size = Vector2(128, 128)
 [node name="DinoPlayer_PFB" parent="." instance=ExtResource("1_a7rfb")]
 position = Vector2(241, 220)
 
+[node name="Camera2D" type="Camera2D" parent="DinoPlayer_PFB"]
+
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(220, 295)
 scale = Vector2(5.12, 1)

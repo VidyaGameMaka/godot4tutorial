@@ -36,7 +36,7 @@ public partial class VideoMenu : CanvasLayer {
     }
 
     private void AddResolutionsToButton() {
-        //List of Resolutions is store in GameData.cs
+        //List of Resolutions is stored in GameData.cs
         //Iterate through each entry in resolutionList array and add them as strings to the button       
         foreach (var item in GameMaster.gameData.windowResolutions) {           
             string myString = item.Key + "x" + item.Value;
@@ -59,7 +59,9 @@ public partial class VideoMenu : CanvasLayer {
     }
 
     public void _on_apply_button_button_up() {
-        GameMaster.ApplyGameDataVideoSettings();       
+        //Actual application of the Video Settins are in GameMaster so that the code is only written once and
+        //can be run at the start of the game when GameMaster initalizes on autoload
+        GameMaster.ApplyGameDataVideoSettings();
     }
 
 }

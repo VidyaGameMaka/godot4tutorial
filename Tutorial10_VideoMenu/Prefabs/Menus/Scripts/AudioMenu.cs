@@ -3,7 +3,7 @@ using System;
 
 public partial class AudioMenu : CanvasLayer {
 
-    //Bus Indexes are configured in GameMaster
+    //Bus Indexes are configured in GameMaster.SetupAudioBusIndexes()
 
     //Labels
     private Label master_label, music_label, sfx_label, voice_label, male_label, female_label;
