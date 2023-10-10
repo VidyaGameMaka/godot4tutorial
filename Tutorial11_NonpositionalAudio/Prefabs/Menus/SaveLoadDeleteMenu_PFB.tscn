@@ -1,0 +1,190 @@
+[gd_scene load_steps=3 format=3 uid="uid://damoa1si6ve1e"]
+
+[ext_resource type="Script" path="res://Prefabs/Menus/Scripts/SaveLoadDeleteMenu.cs" id="1_e21ky"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_06p2i"]
+font_size = 8
+
+[node name="SaveLoadQuitMenu" type="CanvasLayer" node_paths=PackedStringArray("new1", "load1", "delete1", "new2", "load2", "delete2", "new3", "load3", "delete3", "infoLabel1", "infoLabel2", "infoLabel3")]
+script = ExtResource("1_e21ky")
+new1 = NodePath("Control/Panel1/newButton1")
+load1 = NodePath("Control/Panel1/loadButton1")
+delete1 = NodePath("Control/Panel1/deleteButton1")
+new2 = NodePath("Control/Panel2/newButton2")
+load2 = NodePath("Control/Panel2/loadButton2")
+delete2 = NodePath("Control/Panel2/deleteButton2")
+new3 = NodePath("Control/Panel3/newButton3")
+load3 = NodePath("Control/Panel3/loadButton3")
+delete3 = NodePath("Control/Panel3/deleteButton3")
+infoLabel1 = NodePath("Control/Panel1/infoLabel1")
+infoLabel2 = NodePath("Control/Panel2/infoLabel2")
+infoLabel3 = NodePath("Control/Panel3/infoLabel3")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel1" type="Panel" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="newButton1" type="Button" parent="Control/Panel1"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 31.0
+text = "new1"
+
+[node name="loadButton1" type="Button" parent="Control/Panel1"]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 31.0
+text = "load1"
+
+[node name="deleteButton1" type="Button" parent="Control/Panel1"]
+layout_mode = 0
+offset_left = 65.0
+offset_right = 131.0
+offset_bottom = 31.0
+text = "delete1"
+
+[node name="infoLabel1" type="Label" parent="Control/Panel1"]
+layout_mode = 0
+offset_left = 150.0
+offset_right = 480.0
+offset_bottom = 35.0
+text = "Info label line 11 Info label 1 line 2 Info label line 11 Info label 1 line 2 Info label line 11 Info label 1 line 2"
+label_settings = SubResource("LabelSettings_06p2i")
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="Panel2" type="Panel" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="newButton2" type="Button" parent="Control/Panel2"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 54.0
+offset_bottom = 71.0
+text = "new2"
+
+[node name="loadButton2" type="Button" parent="Control/Panel2"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 51.0
+offset_bottom = 71.0
+text = "load2"
+
+[node name="deleteButton2" type="Button" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 40.0
+offset_right = 131.0
+offset_bottom = 71.0
+text = "delete2"
+
+[node name="infoLabel2" type="Label" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 40.0
+offset_right = 480.0
+offset_bottom = 75.0
+text = "Info label line 11 Info label 1 line 2 Info label line 11 Info label 1 line 2 Info label line 11 Info label 1 line 2"
+label_settings = SubResource("LabelSettings_06p2i")
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="Panel3" type="Panel" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="newButton3" type="Button" parent="Control/Panel3"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 54.0
+offset_bottom = 111.0
+text = "new3"
+
+[node name="loadButton3" type="Button" parent="Control/Panel3"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 51.0
+offset_bottom = 111.0
+text = "load3"
+
+[node name="deleteButton3" type="Button" parent="Control/Panel3"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 80.0
+offset_right = 131.0
+offset_bottom = 111.0
+text = "delete3"
+
+[node name="infoLabel3" type="Label" parent="Control/Panel3"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 80.0
+offset_right = 480.0
+offset_bottom = 115.0
+text = "Info label line 11 Info label 1 line 2 Info label line 11 Info label 1 line 2 Info label line 11 Info label 1 line 2"
+label_settings = SubResource("LabelSettings_06p2i")
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="Panel4" type="Panel" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="backButton" type="Button" parent="Control/Panel4"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 54.0
+offset_bottom = 151.0
+text = "Back"
+
+[node name="resetButton" type="Button" parent="Control/Panel4"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 54.0
+offset_bottom = 231.0
+text = "Reset all Data"
+
+[connection signal="button_up" from="Control/Panel1/newButton1" to="." method="_on_new_load_button_up" binds= [1]]
+[connection signal="button_up" from="Control/Panel1/loadButton1" to="." method="_on_new_load_button_up" binds= [1]]
+[connection signal="button_up" from="Control/Panel1/deleteButton1" to="." method="_on_delete_button_up" binds= [1]]
+[connection signal="button_up" from="Control/Panel2/newButton2" to="." method="_on_new_load_button_up" binds= [2]]
+[connection signal="button_up" from="Control/Panel2/loadButton2" to="." method="_on_new_load_button_up" binds= [2]]
+[connection signal="button_up" from="Control/Panel2/deleteButton2" to="." method="_on_delete_button_up" binds= [2]]
+[connection signal="button_up" from="Control/Panel3/newButton3" to="." method="_on_new_load_button_up" binds= [3]]
+[connection signal="button_up" from="Control/Panel3/loadButton3" to="." method="_on_new_load_button_up" binds= [3]]
+[connection signal="button_up" from="Control/Panel3/deleteButton3" to="." method="_on_delete_button_up" binds= [3]]
+[connection signal="button_up" from="Control/Panel4/backButton" to="." method="_on_back_button_button_up"]
+[connection signal="button_up" from="Control/Panel4/resetButton" to="." method="_on_allreset_button_button_up"]

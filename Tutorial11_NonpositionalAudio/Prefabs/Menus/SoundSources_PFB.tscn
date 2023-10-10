@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://blmflkhkdhvn2"]
+
+[ext_resource type="Script" path="res://Prefabs/Menus/Scripts/Snd.cs" id="1_mek5u"]
+
+[node name="SoundSources" type="Node2D" node_paths=PackedStringArray("musicPlayer", "voicePlayer", "malePlayer", "femalePlayer", "sfxPlayers")]
+script = ExtResource("1_mek5u")
+musicPlayer = NodePath("music_AudioStreamPlayer")
+voicePlayer = NodePath("voice_AudioStreamPlayer")
+malePlayer = NodePath("male_AudioStreamPlayer")
+femalePlayer = NodePath("female_AudioStreamPlayer")
+sfxPlayers = [NodePath("sfx_AudioStreamPlayer1"), NodePath("sfx_AudioStreamPlayer2"), NodePath("sfx_AudioStreamPlayer3"), NodePath("sfx_AudioStreamPlayer4"), NodePath("sfx_AudioStreamPlayer5"), NodePath("sfx_AudioStreamPlayer6"), NodePath("sfx_AudioStreamPlayer7"), NodePath("sfx_AudioStreamPlayer8"), NodePath("sfx_AudioStreamPlayer9"), NodePath("sfx_AudioStreamPlayer10"), NodePath("sfx_AudioStreamPlayer11"), NodePath("sfx_AudioStreamPlayer12"), NodePath("sfx_AudioStreamPlayer13"), NodePath("sfx_AudioStreamPlayer14"), NodePath("sfx_AudioStreamPlayer15")]
+
+[node name="music_AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="voice_AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Voice"
+
+[node name="male_AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Voice"
+
+[node name="female_AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Voice"
+
+[node name="sfx_AudioStreamPlayer1" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer7" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer8" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer9" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer10" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer11" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer12" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer13" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer14" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="sfx_AudioStreamPlayer15" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
