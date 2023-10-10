@@ -12,7 +12,10 @@ public partial class VideoMenu : CanvasLayer {
     [Export] private Label resLabel;
     [Export] private OptionButton resOptionsButton;
 
-	public override void _Ready() {
+    private int mySelectedRez = 0;
+
+
+    public override void _Ready() {
         //Set the check button's toggle mode to match the window's setting
         if (DisplayServer.WindowGetMode() == DisplayServer.WindowMode.Fullscreen) {
             winCheckButton.ButtonPressed = true;
@@ -54,11 +57,12 @@ public partial class VideoMenu : CanvasLayer {
         SetWindowLabel(toggled);
     }
 
-    public void _on_resolution_options_button_item_selected(int mySelectedRez) {
-        GameMaster.gameData.resolutionIndex = mySelectedRez;
+    public void _on_resolution_options_button_item_selected(int argRez) {
+        mySelectedRez = argRez;        
     }
 
     public void _on_apply_button_button_up() {
+        GameMaster.gameData.resolutionIndex = mySelectedRez;
         //Actual application of the Video Settins are in GameMaster so that the code is only written once and
         //can be run at the start of the game when GameMaster initalizes on autoload
         GameMaster.ApplyGameDataVideoSettings();
