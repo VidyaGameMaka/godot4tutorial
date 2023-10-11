@@ -12,7 +12,10 @@ public partial class SceneManager : Node {
 
     public static SceneManager instance;
 
-    //Update this Dictionary whenever you add or change a scene you want included in the Scene Manager.
+    /// <summary>
+    /// Use this Dictionary whenever you add or change a scene you want included in the Scene Manager.
+    /// Scene Enum, Scene Path, Pretty Scene Name, pauseAllowed
+    /// </summary>
     public Dictionary<eSceneNames, SceneCstr> sceneDictionary = new Dictionary<eSceneNames, SceneCstr>() {
         {eSceneNames.Main, new SceneCstr("res://Scenes/10_Main.tscn", "Main", false) },
         {eSceneNames.Level1, new SceneCstr("res://Scenes/20_Level1.tscn", "Level One", true) },

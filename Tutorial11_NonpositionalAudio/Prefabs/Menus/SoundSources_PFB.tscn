@@ -17,10 +17,10 @@ bus = &"Music"
 bus = &"Voice"
 
 [node name="male_AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"Voice"
+bus = &"Male"
 
 [node name="female_AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"Voice"
+bus = &"Female"
 
 [node name="sfx_AudioStreamPlayer1" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
