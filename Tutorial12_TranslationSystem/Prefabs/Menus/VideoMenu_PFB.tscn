@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://boilmx0svyvb7"]
+
+[ext_resource type="Script" path="res://Prefabs/Menus/Scripts/VideoMenu.cs" id="1_l847q"]
+
+[node name="VideoMenu_PFB" type="CanvasLayer" node_paths=PackedStringArray("winLabel", "winCheckButton", "resLabel", "resOptionsButton", "applyButton", "backButton")]
+script = ExtResource("1_l847q")
+winLabel = NodePath("Control/winLabel")
+winCheckButton = NodePath("Control/winCheckButton")
+resLabel = NodePath("Control/resolutionLabel")
+resOptionsButton = NodePath("Control/resOptionsButton")
+applyButton = NodePath("Control/applyButton")
+backButton = NodePath("Control/backButton")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="winLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 111.0
+offset_bottom = 26.0
+text = "Window Mode"
+
+[node name="winCheckButton" type="CheckButton" parent="Control"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 44.0
+offset_bottom = 49.0
+
+[node name="resolutionLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 111.0
+offset_bottom = 82.0
+text = "Resolution"
+
+[node name="resOptionsButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_top = 85.0
+offset_right = 125.0
+offset_bottom = 105.0
+
+[node name="applyButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 52.0
+offset_bottom = 151.0
+text = "Apply"
+
+[node name="backButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 234.0
+offset_right = 470.0
+offset_bottom = 265.0
+text = "Back"
+
+[connection signal="toggled" from="Control/winCheckButton" to="." method="_on_windowmode_check_button_toggled"]
+[connection signal="item_selected" from="Control/resOptionsButton" to="." method="_on_resolution_options_button_item_selected"]
+[connection signal="button_up" from="Control/applyButton" to="." method="_on_apply_button_button_up"]
+[connection signal="button_up" from="Control/backButton" to="." method="_on_back_button_button_up"]

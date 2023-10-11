@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://p6s0yv0fqsss"]
+
+[ext_resource type="Script" path="res://Prefabs/Menus/Scripts/AutoLoadMusic.cs" id="1_4vgg1"]
+
+[node name="RequiredSceneComponents" type="Node2D"]
+
+[node name="AutoLoadMusic" type="Node2D" parent="."]
+script = ExtResource("1_4vgg1")
