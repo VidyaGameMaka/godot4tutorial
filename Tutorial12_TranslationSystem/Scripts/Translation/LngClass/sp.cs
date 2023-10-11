@@ -13,7 +13,7 @@ public class sp : Lng {
 
         //Audio Menu
         audioMenu[0] = "Maestro";
-        audioMenu[1] = "Música";
+        audioMenu[1] = "Musica";
         audioMenu[2] = "Sonido o Sonidos";
         audioMenu[3] = "Voz";
         audioMenu[4] = "Masculino";
@@ -28,7 +28,7 @@ public class sp : Lng {
         //Video Menu
         videoMenu[0] = "Ventana";
         videoMenu[1] = "Pantalla Completa";
-        videoMenu[2] = "Resolución";
+        videoMenu[2] = "Resolucion";
         videoMenu[3] = "Aplicar";
         #endregion
 

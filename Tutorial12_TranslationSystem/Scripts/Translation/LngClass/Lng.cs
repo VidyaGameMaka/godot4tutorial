@@ -27,7 +27,7 @@ public class Lng {
 
         //Languages Dictionary is the same in all data sets
         languages[0] = "English";
-        languages[1] = "Español";
+        languages[1] = "Espanol";
     
     }
 }
