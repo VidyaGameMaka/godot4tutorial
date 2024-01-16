@@ -61,6 +61,10 @@ public partial class GameMaster : Node {
 
         //This will tell us that GameMaster object was included in autoload.
         GD.Print("(GameMaster) Gamemaster Ready");
+
+
+
+
     }
 
     public static void ApplyGameDataVideoSettings() {

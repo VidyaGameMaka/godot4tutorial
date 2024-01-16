@@ -11,7 +11,6 @@ public partial class Translator : Node {
 	    ChangeLanguage();
 	}
 
-
     public void ChangeLanguage() {
         switch (GameMaster.gameData.language) {
             case Languages.en:
