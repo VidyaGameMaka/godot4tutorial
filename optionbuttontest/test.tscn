@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgb11jeryaxsr"]
+
+[ext_resource type="Script" path="res://test.cs" id="1_jaw34"]
+
+[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("optionBtn")]
+script = ExtResource("1_jaw34")
+optionBtn = NodePath("Control/OptionButton")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 20.0
+
+[connection signal="item_selected" from="Control/OptionButton" to="." method="_on_option_button_item_selected"]
