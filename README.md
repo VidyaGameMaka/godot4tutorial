@@ -10,9 +10,9 @@ Tutorial 5 - https://youtu.be/nwbJ6gdeiHc
 Tutorial 6 - https://youtu.be/1RkKUIKadpI  
 Tutorial 7 - Video Only: https://youtu.be/_PANRMJoIRE  
 Tutorial 8 - https://youtu.be/FWX72RW3Cag  
-Tutorial 9 - https://www.youtube.com/watch?v=JOU8gWWBH3E
-Tutorial 10 - https://www.youtube.com/watch?v=KddyACwDh8E
-Tutorial 11 - https://www.youtube.com/watch?v=6ysvai7a_6k
-
-Tutorials Focused on one subject:
+Tutorial 9 - https://www.youtube.com/watch?v=JOU8gWWBH3E  
+Tutorial 10 - https://www.youtube.com/watch?v=KddyACwDh8E  
+Tutorial 11 - https://www.youtube.com/watch?v=6ysvai7a_6k  
+  
+Tutorials Focused on one subject:  
 OptionButton - 
